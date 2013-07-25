@@ -46,7 +46,6 @@
   <ItemGroup>
     <Compile Include="Input.fs" />
     <Compile Include="InputTest.fs" />
-    <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="mscorlib" />
