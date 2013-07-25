@@ -48,6 +48,12 @@
     <Compile Include="InputTest.fs" />
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="Assembly-CSharp">
+      <HintPath>..\..\..\..\Documents\Visual Studio 2012\Projects\OuyaFSharpDemo\UnityReferences\OuyaFSharp_Assembly-CSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Assembly-CSharp-firstpass">
+      <HintPath>..\..\..\..\Documents\Visual Studio 2012\Projects\OuyaFSharpDemo\UnityReferences\OuyaFSharp_Assembly-CSharp-firstpass.dll</HintPath>
+    </Reference>
     <Reference Include="mscorlib" />
     <Reference Include="FSharp.Core" />
     <Reference Include="System" />
