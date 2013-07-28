@@ -17,7 +17,7 @@
 //    InputTest.fs : A simple but unfinished port of OuyaInputTester.cs. 
 //    Shows use of Input module, displays a single string of all input values in a GUI Label overlay.
 
-open FSharp.Ouya.Input
+open FSharp.Ouya.OuyaInput
 open System.Text
 open UnityEngine
 

@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="Input.fs" />
     <Compile Include="InputTest.fs" />
+    <None Include="ScratchPaper.fsx" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Assembly-CSharp">
