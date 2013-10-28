@@ -44,7 +44,11 @@
     <PostBuildEvent>xcopy "$(TargetDir)$(TargetName).dll" "C:\&lt;__Unity_Project_Dir__&gt;\Assets\Scripts\" /Y</PostBuildEvent>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="AssemblyInfo.fs" />
+    <Compile Include="Java.fs" />
+    <Compile Include="Control.fs" />
     <Compile Include="Input.fs" />
+    <Compile Include="OuyaGameObject.fs" />
     <Compile Include="InputTest.fs" />
     <None Include="ScratchPaper.fsx" />
   </ItemGroup>
