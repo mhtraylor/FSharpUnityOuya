@@ -1,7 +1,11 @@
 # FSharp.Ouya
 
-Currently this project just has a few simple shim functions for the [OuyaInputFramework](https://github.com/rendermat/OuyaInputFramework) in order to make using Ouya input more idiomatic to F# (see the example in *InputTester.fs*). Eventually, will contain a full port (with discriminated unions and active patterns vs. enums) as well as a wrapper for the [Ouya Unity Plugin](https://github.com/ouya/ouya-unity-plugin). Please consider this merely **experimental** at this time and not for general use.
+This project is now moving on to a full plugin based somewhat on [OuyaInputFramework](https://github.com/rendermat/OuyaInputFramework) and [Ouya Unity Plugin](https://github.com/ouya/ouya-unity-plugin). The goal is to have more of a "turn-key" solution to setting up Unity for Ouya deployment along with more idiomatic ways to access Ouya controller input and menu/IAP functionality from F#. 
+
+Currently the code is something of an incomplete F# port of the C# plugin, and relies on the Java code from the official plugin. The Java side will most likely be replaced with a custom implementation soon. The code also still requires a *OuyaGameObject* for the Java-to-Unity callbacks.
+
+Please consider this merely **experimental** at this time and not for general use.
 
 ## Setup/Installation
 
-Expect real documentation soon. Normally, to include an F# dll in your Unity project you reference at least UnityEngine.dll and/or UnityEditor.dll. To access types, etc. from the Ouya plugin and OuyaInputFramework you'll also have to reference (a copy of, preferably) both *Assembly-CSharp-firstpass.dll* and *Assembly-Csharp.dll* of your Ouya project after you have set everything up for Ouya development (i.e. once Unity has compiled these assemblies). Any major changes to the plugin or framework: you'll have to update your copies of these dlls. Or just use Reflection.
+Expect real documentation soon. Normally, to include an F# dll in your Unity project you reference at least UnityEngine.dll and/or UnityEditor.dll. Under the current iteration, you will no longer have to reference any of the official Ouya plugin assemblies compiled by Unity, but you will have to install the Android (Java) side of the plugin. This will most likely be fixed within the next few updates.
