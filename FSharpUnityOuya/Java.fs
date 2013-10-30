@@ -89,7 +89,7 @@ let getGameData k =
             use jc = new AndroidJavaClass("tv.ouya.sdk.OuyaUnityPlugin")
             r <- jc.CallStatic<string>("getGameData",[| k + "\0" |])
         with
-            | _ as e -> Debug.LogError(sprintf "Unable to set developer id: %A" e)
+            | _ as e -> Debug.LogError(sprintf "FSharp.Ouya.Java unable to get game data: %A" e)
     finally
         AndroidJNI.PopLocalFrame(System.IntPtr.Zero) |> ignore
     r
@@ -102,7 +102,7 @@ let fetchGamerUUID () =
             use jc = new AndroidJavaClass("tv.ouya.sdk.OuyaUnityPlugin")
             jc.CallStatic("fetchGamerUUID")
         with
-            | _ as e -> Debug.LogError(sprintf "Unable to set developer id: %A" e)
+            | _ as e -> Debug.LogError(sprintf "FSharp.Ouya.Java unable to fetch Gamer UUID: %A" e)
     finally
         AndroidJNI.PopLocalFrame(System.IntPtr.Zero) |> ignore
 
