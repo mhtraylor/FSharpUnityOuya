@@ -15,10 +15,20 @@
 //    limitations under the License.
 
 //    Control.fs:  Module for Ouya system and controller events.
+//    Think OUYA button menu, IAP, etc.
 
-type OuyaEvent = MenuButton | Pause | Resume | MenuAppear
+// This will change very, very soon...
+type OuyaSystemEvent = MenuButton | Pause | Resume | MenuAppear
 
-let event = new Event<OuyaEvent>()
+[<RequireQualifiedAccess>]
+module OuyaEvent =
+
+    let internal evn = new Event<OuyaSystemEvent>()
+
+    let fire m = evn.Trigger(m)
+
+    let event = evn.Publish
+
 
 
 
