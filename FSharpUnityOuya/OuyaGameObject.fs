@@ -23,30 +23,25 @@ type OuyaGameObject () =
     inherit MonoBehaviour ()
 
     [<DefaultValue>]
-    val mutable public id : string
+    val mutable public developerID : string
 
     // Event handling.
-    member x.OuyaEvent =
-        event.Publish
-
-    member x.OuyaEventFire(e) =
-        event.Trigger(e)
-
     member x.onMenuButtonUp () =
-        x.OuyaEventFire(MenuButton)
+        OuyaEvent.fire (MenuButton)
 
     member x.onMenuAppearing () =
-        x.OuyaEventFire(MenuAppear)
+        OuyaEvent.fire (MenuAppear)
 
     member x.onPause () =
-        x.OuyaEventFire(Pause)
+        OuyaEvent.fire (Pause)
 
     member x.onResume () =
-        x.OuyaEventFire(Resume)
+        OuyaEvent.fire (Resume)
 
     // Unity callbacks.
     member x.Start () =
-        Java.init x.id
+        GameObject.DontDestroyOnLoad(x.transform.gameObject)
+        Java.init x.developerID
 
 
 
