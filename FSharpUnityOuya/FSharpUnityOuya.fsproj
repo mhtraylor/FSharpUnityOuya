@@ -46,17 +46,19 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="AssemblyInfo.fs" />
+    <Compile Include="Product.fs" />
     <Compile Include="Java.fs" />
     <Compile Include="Control.fs" />
-    <Compile Include="Input.fs" />
     <Compile Include="OuyaGameObject.fs" />
-    <Compile Include="InputTest.fs" />
     <None Include="ScratchPaper.fsx" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="mscorlib" />
     <Reference Include="FSharp.Core" />
     <Reference Include="System" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Xml" />
     <Reference Include="UnityEngine">
       <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Unity\Editor\Data\Managed\UnityEngine.dll</HintPath>
     </Reference>
