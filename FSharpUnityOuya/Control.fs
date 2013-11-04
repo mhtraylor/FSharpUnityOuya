@@ -17,15 +17,29 @@
 //    Control.fs:  Module for Ouya system and controller events.
 //    Think OUYA button menu, IAP, etc.
 
-// This will change very, very soon...
-type OuyaSystemEvent = MenuButton | Pause | Resume | MenuAppear
+open FSharp.Ouya.Product
+open FSharp.Ouya.Util
+
+// This will probably change soon...
+[<RequireQualifiedAccess>]
+module Menu =
+
+    type t = Button | Pause | Resume | Appearing
+
+    let internal evn = new Event<t>()
+
+    let trigger m = evn.Trigger(m)
+
+    let event = evn.Publish
 
 [<RequireQualifiedAccess>]
-module OuyaEvent =
+module IAP =
+    
+    type t = Cancel | Failure of Json.Error | Success of Product.t
 
-    let internal evn = new Event<OuyaSystemEvent>()
+    let internal evn = new Event<t>()
 
-    let fire m = evn.Trigger(m)
+    let trigger m = evn.Trigger(m)
 
     let event = evn.Publish
 
