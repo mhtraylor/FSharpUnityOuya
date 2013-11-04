@@ -16,12 +16,7 @@
 
 //    Product.fs:  Module for Ouya IAP types.
 
-open System
-open System.IO
 open System.Runtime.Serialization
-open System.Runtime.Serialization.Json
-open System.Text
-open System.Xml
 
 type Purchasable = Purchasable of string
 
@@ -62,18 +57,11 @@ type Receipt =
         uuid : string
     }
 
-module Json =
-
-    let toJson<'a> (ob:'a) =
-        use m = new MemoryStream()
-        (DataContractJsonSerializer(typeof<'a>)).WriteObject(m,ob) 
-        Encoding.Default.GetString(m.ToArray())
-
-    let fromJson<'a> (str:string) =
-        use m = new MemoryStream(str |> Encoding.UTF8.GetBytes)
-        (DataContractJsonSerializer(typeof<'a>)).ReadObject(m)
-        :?> 'a 
-
-
+type t = 
+    | GamerUUID of string 
+    | SingleProduct of Product 
+    | SingleReceipt of Receipt 
+    | ProductList of Product list 
+    | ReceiptList of Receipt list
 
 
